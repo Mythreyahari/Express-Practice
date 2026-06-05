@@ -16,6 +16,19 @@ const cofigureCors = ()=>{
             } else {
                 callback(new Error("Not allowed by Cors"))
             }
-        }
+        },
+
+        methods:["GET","POST","PUT","DELETE"],
+        allowedHeaders:[
+            "Content-Type",
+            "Authorization",
+            "Accept-Version"
+        ],
+
+        exposedHeaders:["X-Total-Count","Content-Range"],
+        credentials:true, // enable support for cookies,
+        preflightContinue:false,
+        maxAge:600,
+        optionsSuccessStatus:204
     })
 };
