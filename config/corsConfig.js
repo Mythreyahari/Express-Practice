@@ -32,3 +32,5 @@ const cofigureCors = ()=>{
         optionsSuccessStatus:204
     })
 };
+
+module.exports = {cofigureCors};
