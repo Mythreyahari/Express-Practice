@@ -9,11 +9,11 @@ const requestLogger = (req,res,next)=>{
     next()
 };
 
-const addTimestamp = (req,res,next)=>{
+const addTimeStamp = (req,res,next)=>{
     req.timeStamp = new Date().toISOString()
     next()
 }
 
-module.exports = {requestLogger,addTimestamp};
+module.exports = {requestLogger,addTimeStamp};
 
 
