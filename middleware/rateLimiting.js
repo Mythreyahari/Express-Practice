@@ -3,7 +3,7 @@ const rateLimit = require("express-rate-limit")
 const createBasicRateLimiter = (maxRequest,time)=>{
         return rateLimit({
              max:maxRequest,
-             window:time,
+             windowMs:time,
              message:"Too many request, please try again later",
              standardHeaders:true,
              legacyHeaders:false
