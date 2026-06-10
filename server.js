@@ -3,6 +3,7 @@ const express = require("express");
 const {cofigureCors} = require("./config/corsConfig")
 const {urlVersioning} = require("./middleware/apiVersioning")
 const {requestLogger,addTimeStamp} = require("./middleware/customMiddleware")
+const {createBasicRateLimiter} = require("./middleware/rateLimiting")
 const app = express();
 const PORT = process.env.PORT = 3000
 
@@ -12,8 +13,10 @@ const PORT = process.env.PORT = 3000
 app.use(requestLogger)
 app.use(addTimeStamp)
 app.use(cofigureCors())
+app.use(createBasicRateLimiter(100,15*60*1000))
 app.use(express.json())
 app.use("/api/v1",urlVersioning("v1"))
+
 
 
 app.listen(PORT,()=>{
