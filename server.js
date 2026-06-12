@@ -15,7 +15,7 @@ app.use(addTimeStamp)
 app.use(cofigureCors())
 app.use(createBasicRateLimiter(100,15*60*1000))
 app.use(express.json())
-app.use("/api/v1",urlVersioning("v1"))
+app.use(urlVersioning("v1"))
 
 
 
